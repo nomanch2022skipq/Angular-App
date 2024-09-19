@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Enter Details</h1>
+<mat-form-field class="m-3">
+  <mat-label>Enter Task</mat-label>
+  <input matInput [formControl]="name">
+  
+</mat-form-field>
+<div class="m-3" *ngIf="name.invalid && name.touched">
+  <div *ngIf="name.errors?.['required']">Name is required.</div>
+  <div *ngIf="name.errors?.['minlength']">Name must be at least 3 characters long.</div>
+</div>
+
+<div mat-dialog-actions>
+    <button class="pl-3" mat-button (click)="cancel()">Cancel</button>
+    <button mat-button (click)="confirm()">Confirm</button>
+</div>
